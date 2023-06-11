@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+.container__value {
+  font-size: 3rem;
+}

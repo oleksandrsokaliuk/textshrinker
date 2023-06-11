@@ -1,5 +1,5 @@
 .container {
-  margin: 25px;
+  margin: 0 25px;
 }
 
 .container__button {
@@ -13,4 +13,5 @@
 .buttons {
   display: flex;
   flex-direction: row;
+  font-size: 3rem;
 }

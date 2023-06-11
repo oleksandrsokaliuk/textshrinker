@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Button from "./components/Button";
+import Value from "./components/Value";
 
 enum ButtonEnum {
   INCREMENT = "Increment",
@@ -14,6 +15,7 @@ function App() {
         <Button text={ButtonEnum.INCREMENT} />
         <Button text={ButtonEnum.DECREMENT} />
       </div>
+      <Value numberValue={5} />
     </div>
   );
 }
