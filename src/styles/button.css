@@ -1,0 +1,16 @@
+.container {
+  margin: 25px;
+}
+
+.container__button {
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  padding: 30px;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
