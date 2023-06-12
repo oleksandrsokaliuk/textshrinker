@@ -1,6 +1,6 @@
-import { ButtonEnum, INumberAction, INumberState } from "../../types/types";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { INumberState } from "../../types/types";
 
 const initialState: INumberState = {
   numb: 0,
@@ -10,16 +10,16 @@ export const numberSlice = createSlice({
   name: "numberReducer",
   initialState,
   reducers: {
-    increment: (state) => {
+    increment: (state: INumberState) => {
       state.numb += 1;
     },
-    decrement: (state) => {
+    decrement: (state: INumberState) => {
       state.numb -= 1;
     },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
+    incrementByAmount: (state: INumberState, action: PayloadAction<number>) => {
       state.numb += action.payload;
     },
-    decrementByAmount: (state, action: PayloadAction<number>) => {
+    decrementByAmount: (state: INumberState, action: PayloadAction<number>) => {
       state.numb -= action.payload;
     },
   },
