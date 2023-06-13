@@ -26,7 +26,6 @@ export const FormikField = styled(Field)`
     font-weight: 300;
     font-size: 30px;
     line-height: 36px;
-    background-color: rgba(255, 255, 255, 0.3);
   }
   &:focus {
     outline: none;
