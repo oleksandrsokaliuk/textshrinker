@@ -12,17 +12,21 @@ import history from "./../../assets/history.svg";
 import theme from "./../../assets/theme.svg";
 import authorization from "./../../assets/authorization.svg";
 import LogoImg from "./LogoImg";
+import { Link, useNavigate } from "react-router-dom";
+import { locations } from "../../routing/routes";
 
 const Menu: FC = () => {
-  const shortUrl = useSelector<IShrinkerState>((state) => state.shortUrl);
-  console.log(shortUrl);
+  const navigate = useNavigate();
   return (
     <div>
       <LogoImg />
       <MenuWrapper>
-        <MenuIcon src={history} />
+        <MenuIcon onClick={() => navigate(locations.HISTORY)} src={history} />
         <MenuIcon src={theme} />
-        <MenuIcon src={authorization} />
+        <MenuIcon
+          onClick={() => navigate(locations.LOGIN)}
+          src={authorization}
+        />
       </MenuWrapper>
     </div>
   );

@@ -1,4 +1,8 @@
 import styled, { keyframes } from "styled-components";
+import history from "./../../assets/history.svg";
+import theme from "./../../assets/theme.svg";
+import authorization from "./../../assets/authorization.svg";
+import { Link } from "react-router-dom";
 
 export const MenuWrapper = styled.menu`
   position: absolute;
