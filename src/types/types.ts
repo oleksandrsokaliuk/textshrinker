@@ -11,22 +11,10 @@ interface IShrinkerApiResult {
 
 export interface IShrinkerState {
   longUrl: string;
-  shortUrl: string;
+  shortUrl: IShrinkerApi | string;
 }
 
 export interface IShrinkerApi {
   ok: boolean;
   result: IShrinkerApiResult;
-}
-
-export interface INumberAction {
-  type: string;
-  payload: number;
-}
-
-export enum ButtonEnum {
-  INCREMENT = "Increment",
-  DECREMENT = "Decrement",
-  INCREMENT_BY_AMOUNT = "Increment By Amount",
-  DECREMENT_BY_AMOUNT = "Decrement By Amount",
 }

@@ -21,7 +21,7 @@ const MainPage = () => {
         ad dicta! Repellat unde cupiditate doloribus
       </Paragraph>
       <ShrinkForm />
-      {shortUrl ? <ShortUrl /> : null}
+      <ShortUrl />
     </Container>
   );
 };

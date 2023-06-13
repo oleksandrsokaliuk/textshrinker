@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 70%;
-  margin-bottom: 10%;
+  height: 60%;
 `;
 
 export const Header = styled.h2`

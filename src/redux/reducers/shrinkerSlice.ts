@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { IShrinkerState } from "../../types/types";
+import { IShrinkerApi, IShrinkerState } from "../../types/types";
 import axios from "axios";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -35,9 +35,13 @@ export const shrinkerSlice = createSlice({
     // },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchShortUrlByLong.fulfilled, (state, action) => {
-      state.shortUrl = action.payload;
-    });
+    builder.addCase(
+      fetchShortUrlByLong.fulfilled,
+      (state, action: PayloadAction<IShrinkerApi>) => {
+        state.shortUrl = action.payload.result.share_link;
+        console.log(state.shortUrl);
+      }
+    );
   },
 });
 
