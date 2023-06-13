@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import numberReducer from "./numberSlice";
+import shrinkerSlice from "./shrinkerSlice";
 
 export const store = configureStore({
-  reducer: { numberReducer },
+  reducer: { shrinkerSlice },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
