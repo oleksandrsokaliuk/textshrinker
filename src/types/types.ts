@@ -11,7 +11,7 @@ interface IShrinkerApiResult {
 
 export interface IShrinkerState {
   longUrl: string;
-  shortUrl: IShrinkerApi | string;
+  shortUrl: string;
 }
 
 export interface IShrinkerApi {
