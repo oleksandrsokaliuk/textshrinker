@@ -19,7 +19,6 @@ export interface RouterProps {
   component: React.ComponentType;
   name?: string;
   exact?: boolean;
-
   subPath?: SubPath[];
 }
 
@@ -29,13 +28,6 @@ export const routes: RouterProps[] = [
     component: MainPage,
     name: "Main",
     exact: true,
-
-    // subPath: [
-    //   {
-    //     path: locations.LIST_OF_TASKS,
-    //     component: ListOfTasks,
-    //   },
-    // ],
   },
   {
     path: locations.LOGIN,

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import {
   Formik,
   FormikHelpers,
@@ -9,14 +9,13 @@ import {
 } from "formik";
 
 export const FormikField = styled(Field)`
-  width: 80%;
+  width: 100%;
   height: 100%;
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.3);
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 2rem;
-  padding-left: 2%;
   color: rgba(0, 0, 0, 0.5);
   &::placeholder {
     display: flex;
@@ -26,6 +25,7 @@ export const FormikField = styled(Field)`
     font-weight: 300;
     font-size: 30px;
     line-height: 36px;
+    padding-left: 2%;
   }
   &:focus {
     outline: none;
@@ -34,6 +34,37 @@ export const FormikField = styled(Field)`
   &:active {
     background-color: rgba(255, 255, 255, 0.3);
   }
+`;
+
+export const FormikFieldExtension = styled(FormikField)`
+  min-width: 60%;
+  width: 60%;
+  align-self: center;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: center;
+  box-shadow: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  &::placeholder {
+    font-size: 0.7em;
+  }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s ease;
+  }
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+`;
+
+export const FormikFieldContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 `;
 
 export const FormikButton = styled.button`

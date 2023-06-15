@@ -29,6 +29,5 @@ export const Paragraph = styled.p`
   font-size: 25px;
   line-height: 137.02%;
   text-align: center;
-
   color: #ffffff;
 `;

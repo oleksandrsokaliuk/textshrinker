@@ -10,6 +10,8 @@ import {
 import {
   FormikButton,
   FormikField,
+  FormikFieldContainer,
+  FormikFieldExtension,
   FormikForm,
 } from "../../styles/mainPage/ShrinkForm.styled";
 import { useSelector, useDispatch } from "react-redux";
@@ -18,20 +20,21 @@ import { AppDispatch } from "../../redux/reducers/store";
 
 interface MyFormValues {
   url: string;
+  extension: string;
 }
 
 export const ShrinkForm: React.FC<{}> = () => {
-  const fetchShrinkApi = async (value: string) => {
+  const fetchShrinkApi = async (value: MyFormValues) => {
     try {
       const originalPromiseResult = await dispatch(
-        fetchShortUrlByLong(value)
+        fetchShortUrlByLong(value.url)
       ).unwrap();
     } catch (e) {
       console.error(e);
     }
   };
   const dispatch = useDispatch<AppDispatch>();
-  const initialValues: MyFormValues = { url: "" };
+  const initialValues: MyFormValues = { url: "", extension: "" };
   return (
     <>
       <Formik
@@ -39,11 +42,16 @@ export const ShrinkForm: React.FC<{}> = () => {
         onSubmit={(values: MyFormValues, actions) => {
           console.log({ values, actions });
           fetchShrinkApi(values.url);
-          actions.setSubmitting(false);
         }}
       >
         <FormikForm>
-          <FormikField name="url" placeholder="Long URL..." />
+          <FormikFieldContainer>
+            <FormikField name="url" placeholder="Long URL..." />
+            <FormikFieldExtension
+              name="extension"
+              placeholder="Customize extension"
+            />
+          </FormikFieldContainer>
           <FormikButton type="submit">Shrink</FormikButton>
         </FormikForm>
       </Formik>
