@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/textshrinker/static/css/main.6651afcb.css",
+    "main.js": "/textshrinker/static/js/main.c6ef1973.js",
+    "static/media/qr.svg": "/textshrinker/static/media/qr.c83822be15727618d899ac8af66a2939.svg",
+    "static/media/authorization.svg": "/textshrinker/static/media/authorization.4c13c089f45edb029df2fd7ee44364a7.svg",
+    "static/media/pencil.svg": "/textshrinker/static/media/pencil.6f7f13a5915ee5a40f62b08b657d0a50.svg",
+    "static/media/delete.svg": "/textshrinker/static/media/delete.a05910e5d762cbcfaf67cd2113d9b68c.svg",
+    "static/media/history.svg": "/textshrinker/static/media/history.af8808d74cddc16faf099b87c9375bd6.svg",
+    "index.html": "/textshrinker/index.html",
+    "static/media/copy.svg": "/textshrinker/static/media/copy.aca59f1ddc4fd332d46f2c3b01d5a20b.svg",
+    "static/media/third-background.svg": "/textshrinker/static/media/third-background.269f3cf9c6adbf54f14bd380b2063f34.svg",
+    "static/media/theme.svg": "/textshrinker/static/media/theme.4bd9e3c97b7945e91abb0afeb410cc26.svg",
+    "static/media/second-background.svg": "/textshrinker/static/media/second-background.b7d362d2d9eff68bc3a73c7e37785fb3.svg",
+    "static/media/fourth-background.svg": "/textshrinker/static/media/fourth-background.18f494bafcbe2855c1811d3b7c7d01c5.svg",
+    "static/media/favourite.svg": "/textshrinker/static/media/favourite.f96cf1ccda6c35a31910fdfc877ad21d.svg",
+    "static/media/first-background.svg": "/textshrinker/static/media/first-background.3e76150f0fe89edb493735e01afcfc79.svg",
+    "static/media/fifth-background.svg": "/textshrinker/static/media/fifth-background.13e4e44eb968ea37113ab70b9bbb5a6f.svg",
+    "main.6651afcb.css.map": "/textshrinker/static/css/main.6651afcb.css.map",
+    "main.c6ef1973.js.map": "/textshrinker/static/js/main.c6ef1973.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6651afcb.css",
+    "static/js/main.c6ef1973.js"
+  ]
+}
