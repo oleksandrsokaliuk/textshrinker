@@ -1,4 +1,1 @@
-# This is React application with Redux on TypeScript (template). 
-
-## It is supposed to be used as a starting point in all projects
-# urlshrinker
+# This is an App that you can use to make the links shorter, using a special API for that
