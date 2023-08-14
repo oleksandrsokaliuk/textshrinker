@@ -7,30 +7,59 @@ import {
   Field,
   FieldProps,
 } from "formik";
+import {
+  FormikButton,
+  FormikField,
+} from "../../styles/mainPage/ShrinkForm.styled";
+import {
+  ButtonContainer,
+  FormStyled,
+  FormikStyled,
+  InputsContainer,
+  LoginFormikButton,
+  LoginFormikField,
+} from "../../styles/authorization/Login.styled";
 
-interface MyFormValues {
-  url: string;
+interface ILoginForm {
+  email: string;
+  password: string;
+  repeatPassword: string;
 }
 
 export const LogIn: React.FC<{}> = () => {
-  const initialValues: MyFormValues = { url: "" };
+  const initialValues: ILoginForm = {
+    email: "",
+    password: "",
+    repeatPassword: "",
+  };
   return (
-    <div>
-      <Formik
+    <>
+      <FormikStyled
         initialValues={initialValues}
         onSubmit={(values, actions) => {
           console.log({ values, actions });
-          alert(JSON.stringify(values, null, 2));
-          actions.setSubmitting(false);
         }}
       >
-        <Form>
-          <label htmlFor="url">First Name</label>
-          <Field id="url" name="url" placeholder="Long URL" />
-          <button type="submit">Shrink</button>
-        </Form>
-      </Formik>
-    </div>
+        <FormStyled>
+          <InputsContainer>
+            <LoginFormikField id="email" name="email" placeholder="Email" />
+            <LoginFormikField
+              id="password"
+              name="password"
+              placeholder="Password"
+            />
+            <LoginFormikField
+              id="repeatPassword"
+              name="repeatPassword"
+              placeholder="Repeat Password"
+            />
+            <ButtonContainer>
+              <LoginFormikButton type="submit">Log in</LoginFormikButton>
+            </ButtonContainer>
+          </InputsContainer>
+        </FormStyled>
+      </FormikStyled>
+    </>
   );
 };
 

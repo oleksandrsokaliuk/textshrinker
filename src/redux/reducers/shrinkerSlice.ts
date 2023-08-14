@@ -4,6 +4,7 @@ import { IShrinkerApi, IShrinkerState } from "../../types/types";
 import axios from "axios";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 import { RootState } from "./store";
+import { IHistoryNoteProps } from "../../components/history/HistoryNote";
 
 export const fetchShortUrlByLong = createAsyncThunk(
   "shrinker/postLongURL",
@@ -18,12 +19,27 @@ export const fetchShortUrlByLong = createAsyncThunk(
 const initialState: IShrinkerState = {
   longUrl: "",
   shortUrl: "",
+  historyItems: [],
 };
 
 export const shrinkerSlice = createSlice({
   name: "shrinkerReducer",
   initialState,
   reducers: {
+    getHistoryItem: (
+      state: IShrinkerState,
+      action: PayloadAction<IHistoryNoteProps>
+    ) => {
+      state.historyItems.push(action.payload);
+    },
+    deleteHistoryItem: (
+      state: IShrinkerState,
+      action: PayloadAction<string>
+    ) => {
+      state.historyItems = state.historyItems.filter(
+        (el) => el.shortUrl !== action.payload
+      );
+    },
     // increment: (state: IShrinkerState) => {
     //   state.numb += 1;
     // },
@@ -38,15 +54,14 @@ export const shrinkerSlice = createSlice({
     builder.addCase(
       fetchShortUrlByLong.fulfilled,
       (state, action: PayloadAction<IShrinkerApi>) => {
-        state.shortUrl = action.payload.result.share_link;
+        state.shortUrl = action.payload.result.full_short_link2;
         console.log(state.shortUrl);
       }
     );
   },
 });
 
-// export const { increment, decrement, incrementByAmount, decrementByAmount } =
-//   shrinkerSlice.actions;
+export const { getHistoryItem, deleteHistoryItem } = shrinkerSlice.actions;
 
 export default shrinkerSlice.reducer;
 

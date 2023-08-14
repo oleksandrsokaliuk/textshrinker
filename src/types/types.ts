@@ -1,3 +1,5 @@
+import { IHistoryNoteProps } from "../components/history/HistoryNote";
+
 interface IShrinkerApiResult {
   code: string;
   short_link: string;
@@ -12,6 +14,7 @@ interface IShrinkerApiResult {
 export interface IShrinkerState {
   longUrl: string;
   shortUrl: string;
+  historyItems: IHistoryNoteProps[];
 }
 
 export interface IShrinkerApi {

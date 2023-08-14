@@ -3,8 +3,8 @@ import { Container, Header } from "../../styles/mainPage/MainPage.styled";
 
 export interface IHistoryNoteProps {
   favourite: boolean;
-  creationDate: Date;
-  expiryDate: Date;
+  creationDate: Date | string;
+  expiryDate: Date | string;
   longUrl: string;
   shortUrl: string;
   clicks: number;

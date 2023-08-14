@@ -15,8 +15,14 @@ import {
   FormikForm,
 } from "../../styles/mainPage/ShrinkForm.styled";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchShortUrlByLong } from "../../redux/reducers/shrinkerSlice";
+import {
+  deleteHistoryItem,
+  fetchShortUrlByLong,
+  getHistoryItem,
+  useAppSelector,
+} from "../../redux/reducers/shrinkerSlice";
 import { AppDispatch } from "../../redux/reducers/store";
+import { IHistoryNoteProps } from "../history/HistoryNote";
 
 interface MyFormValues {
   url: string;
@@ -24,6 +30,7 @@ interface MyFormValues {
 }
 
 export const ShrinkForm: React.FC<{}> = () => {
+  const [linkToCompare, setLinkToCompare] = React.useState<string>("");
   const fetchShrinkApi = async (value: MyFormValues) => {
     try {
       const originalPromiseResult = await dispatch(
@@ -33,7 +40,13 @@ export const ShrinkForm: React.FC<{}> = () => {
       console.error(e);
     }
   };
+  const url = useAppSelector((state) => state.persistedReducer.historyItems);
+  const longUrl = useAppSelector((state) => state.persistedReducer.longUrl);
+  const shortUrl = useAppSelector((state) => state.persistedReducer.shortUrl);
   const dispatch = useDispatch<AppDispatch>();
+  // const deleteItem = () => {
+  //   dispatch(deleteHistoryItem());
+  // };
   const initialValues: MyFormValues = { url: "", extension: "" };
   return (
     <>
@@ -41,7 +54,16 @@ export const ShrinkForm: React.FC<{}> = () => {
         initialValues={initialValues}
         onSubmit={(values: MyFormValues, actions) => {
           console.log({ values, actions });
-          fetchShrinkApi(values.url);
+          fetchShrinkApi(values);
+          const historyElement: IHistoryNoteProps = {
+            favourite: false,
+            creationDate: new Date(Date.now()).toLocaleDateString(),
+            expiryDate: new Date(Date.now() + 604800).toLocaleDateString(),
+            longUrl: longUrl,
+            shortUrl: shortUrl,
+            clicks: 0,
+          };
+          dispatch(getHistoryItem(historyElement));
         }}
       >
         <FormikForm>

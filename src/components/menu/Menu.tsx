@@ -19,7 +19,7 @@ const Menu: FC = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <LogoImg />
+      {/* <LogoImg /> */}
       <MenuWrapper>
         <MenuIcon onClick={() => navigate(locations.HISTORY)} src={history} />
         <MenuIcon src={theme} />

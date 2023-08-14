@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useRef, useState } from "react";
+import React, { FC, ReactNode, useEffect, useRef, useState } from "react";
 import { useField, Form, FormikProps, Formik } from "formik";
 import ShrinkForm from "./ShrinkForm";
 import {
@@ -23,8 +23,11 @@ import { TableIcon } from "../../styles/history/History.styled";
 
 const ShortUrl: FC = (props) => {
   const [isCopied, setIsCopied] = useState<boolean>(false);
-  const shortUrl = useAppSelector((state) => state.shrinkerSlice.shortUrl);
-  console.log(shortUrl);
+  const shortUrl = useAppSelector((state) => state.persistedReducer.shortUrl);
+  const [shortUrlForRender, setShortUrlForRender] = useState<string>("");
+  useEffect(() => {
+    setShortUrlForRender(shortUrl);
+  }, [shortUrl]);
   const copyToClipboard = (): void => {
     navigator.clipboard.writeText(shortUrl);
     console.log("text is copied" + shortUrl);

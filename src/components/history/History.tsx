@@ -37,11 +37,14 @@ const mockDataObjSecond: IHistoryNoteProps = {
   clicks: 5,
 };
 
-const mockDataArr: IHistoryNoteProps[] = [mockDataObjFirst, mockDataObjSecond];
-
 const History: React.FC = () => {
   const [isCopied, setIsCopied] = React.useState<boolean>(false);
-  const url = useAppSelector((state) => state.shrinkerSlice.shortUrl);
+  const mockDataArr: IHistoryNoteProps[] = [
+    mockDataObjFirst,
+    mockDataObjSecond,
+  ];
+  const url = useAppSelector((state) => state.persistedReducer.historyItems);
+  const shortLink = useAppSelector((state) => state.persistedReducer.shortUrl);
   const copyToClipboard = (shortUrl: string): void => {
     navigator.clipboard.writeText(shortUrl);
     console.log("text is copied" + shortUrl);
@@ -66,7 +69,7 @@ const History: React.FC = () => {
             <TableData></TableData>
             <TableData></TableData>
           </TableRow>
-          {mockDataArr.map((urlElement) => {
+          {url.map((urlElement) => {
             return (
               <TableRow>
                 <TableData>
@@ -82,10 +85,10 @@ const History: React.FC = () => {
                       elementFeature.toLocaleString()} */}
                 </TableData>
                 <TableData style={{ color: "white" }}>
-                  {urlElement.creationDate.toLocaleDateString()}
+                  {urlElement.creationDate as React.ReactNode}
                 </TableData>
                 <TableData isExpire>
-                  {urlElement.expiryDate.toLocaleDateString()}
+                  {urlElement.expiryDate as React.ReactNode}
                 </TableData>
                 <TableData isLink>
                   {urlElement.shortUrl} {urlElement.longUrl}
@@ -103,7 +106,7 @@ const History: React.FC = () => {
                   <TableIcon
                     src={copyIcon}
                     onClick={() => {
-                      copyToClipboard(url);
+                      copyToClipboard(shortLink);
                     }}
                   />
                 </TableData>
